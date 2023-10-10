@@ -6,8 +6,9 @@ using API.Domains.Domain.Entities.Base;
 
 namespace API.Domains.Domain.Entities
 {
-    public class Endereco : Entity
+    public class Endereco
     {
+        public int IdEndereco { get; set; }
         public string Logradouro { get; set; } = string.Empty;
         public string NumeroLogradouro { get; set; } = string.Empty;
         public string Complemento { get; set; } = string.Empty;
@@ -18,7 +19,7 @@ namespace API.Domains.Domain.Entities
         public string PontoReferencia { get; set; } = string.Empty;
         public DateTime DataCadastro { get; set; }
         public bool Ativo { get; set; }
-        public string Descricao { get; set; } = string.Empty;
+        public string DescricaoEndereco { get; set; } = string.Empty;
 
         public int ClienteId { get; set; }
 

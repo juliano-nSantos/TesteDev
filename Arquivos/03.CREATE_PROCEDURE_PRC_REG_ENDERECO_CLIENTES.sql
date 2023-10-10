@@ -1,0 +1,48 @@
+CREATE PROCEDURE PRC_REG_ENDERECO_CLIENTES
+(
+	@LOGRADOURO VARCHAR(200),
+	@NUMERO_LOGRADOURO VARCHAR(10),
+	@COMPLEMENTO VARCHAR(100),
+	@BAIRRO VARCHAR(100),
+	@CIDADE VARCHAR(100),
+	@ESTADO CHAR(2),
+	@CEP VARCHAR(12),
+	@PONTO_REFERENCIA VARCHAR(200),
+	@DATA_CADASTRO DATETIME,
+	@ATIVO BIT,
+	@DESCRICAO_ENDERECO VARCHAR(100),
+	@CLIENTE_ID INT
+)
+AS
+BEGIN
+	INSERT INTO Enderecos
+	(
+	    Logradouro,
+	    NumeroLogradouro,
+	    Complemento,
+	    Bairro,
+	    Cidade,
+	    Estado,
+	    Cep,
+	    PontoReferencia,
+	    ClienteId,
+	    DataCadastro,
+	    Ativo,
+	    DescricaoEndereco
+	)
+	VALUES
+	(   
+		@LOGRADOURO,
+	    @NUMERO_LOGRADOURO,
+	    @COMPLEMENTO, 
+	    @BAIRRO,
+	    @CIDADE,
+	    @ESTADO,
+	    @CEP,
+	    @PONTO_REFERENCIA, 
+	    @CLIENTE_ID, 
+	    @DATA_CADASTRO,
+	    @ATIVO, 
+	    @DESCRICAO_ENDERECO 
+	)
+END
