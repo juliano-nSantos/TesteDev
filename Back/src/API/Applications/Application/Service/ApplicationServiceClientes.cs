@@ -20,6 +20,24 @@ namespace API.Applications.Application.Service
             _mapperCliente = mapperCliente;
         }
 
+        public async Task<bool> AddAsync(ClienteDTO clienteDTO)
+        {
+            try
+            {
+                var cliente = _mapperCliente.MapperToEntity(clienteDTO);
+
+                return await _serviceCliente.AddAsync(cliente);
+            }
+            catch(ArgumentException ax)
+            {
+                throw new ArgumentException(ax.Message);
+            }
+            catch (Exception ex)
+            {                
+                throw new Exception(ex.Message);
+            }          
+        }
+
         public async Task<ClienteDTO> GetByIdAsync(int id)
         {
             try

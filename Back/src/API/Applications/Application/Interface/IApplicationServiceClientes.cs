@@ -9,5 +9,6 @@ namespace API.Applications.Application.Interface
     public interface IApplicationServiceClientes
     {
         Task<ClienteDTO> GetByIdAsync(int id);
+        Task<bool> AddAsync(ClienteDTO clienteDTO);
     }
 }

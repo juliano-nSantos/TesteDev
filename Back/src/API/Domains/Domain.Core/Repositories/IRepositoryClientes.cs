@@ -7,8 +7,8 @@ using API.Domains.Domain.Entities;
 
 namespace API.Domains.Domain.Core.Repositories
 {
-    public interface IRepositoryClientes :IRepositoryBase<Cliente>
+    public interface IRepositoryClientes : IRepositoryBase<Cliente>
     {
-        
+        Task<Cliente> GetByEmail(string email);
     }
 }

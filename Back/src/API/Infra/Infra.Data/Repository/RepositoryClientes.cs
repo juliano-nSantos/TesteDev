@@ -143,5 +143,20 @@ namespace API.Infra.Infra.Data.Repository
 
             return retorno;
         }
+
+        public async Task<Cliente> GetByEmail(string email)
+        {
+            try
+            {
+                return await _context.Clientes
+                                    .AsNoTracking()
+                                    .Where(c => c.Email == email)
+                                    .FirstOrDefaultAsync();
+            }
+            catch (Exception ex)
+            {                
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

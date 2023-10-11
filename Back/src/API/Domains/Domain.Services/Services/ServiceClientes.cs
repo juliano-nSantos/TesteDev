@@ -26,7 +26,24 @@ namespace API.Domains.Domain.Services.Services
                 return await _repository.GetByIdAsync(id);
             }
             catch (Exception ex)
-            {                
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public override async Task<bool> AddAsync(Cliente obj)
+        {
+            try
+            {
+                var cli = await _repository.GetByEmail(obj.Email);
+
+                if (cli != null)
+                    throw new ArgumentException("Email informado já está cadastrado!");
+
+                return await _repository.AddAsync(obj);
+            }
+            catch (Exception ex)
+            {
                 throw new Exception(ex.Message);
             }
         }
